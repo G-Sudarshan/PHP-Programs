@@ -32,28 +32,46 @@ if(isset($_POST['n']))
 		return $result;
 	}
 	switch ($a) {
-		case 'Factrial':
+		case 'Factrial': // Factorial Case
 			$r = fact($n);
 			echo "Factorial of $n is $r";
 			break;
-		case 'Prime':
-			$arr = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,61,67,71,73,79,83,89,93,97];
-			$flag=true;
-			$i =0;
-			for($i=0;$i<25;$i++)
-			{
-				if($arr[$i]==$n)
+		case 'Prime':  //Prime no. case
+// 			$arr = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,61,67,71,73,79,83,89,93,97];
+// 			$flag=true;
+// 			$i =0;
+// 			for($i=0;$i<25;$i++)
+// 			{
+// 				if($arr[$i]==$n)
+// 				{
+// 					echo "$n is a prime no.";
+// 					$flag = false;
+// 				}
+// 			}
+// 			if($flag)
+// 			{
+// 				echo "$n is not a prime no";
+// 			}
+// 			break;
+			if($n==2||$n==3||$n==5||$n==7)
 				{
-					echo "$n is a prime no.";
-					$flag = false;
+					echo "<b>$n is A Prime Number.</b>";
 				}
-			}
-			if($flag)
-			{
-				echo "$n is not a prime no";
-			}
+				elseif($n%2!=0){
+					if($n%3!=0&&$n%5!=0&&$n%7!=0)				
+				{
+					echo "<b>$n is A Prime Number</b>";
+				}
+				else
+				{
+					echo "<b>$n is NOT a Prime Number</b>";
+				}}
+				else
+				{
+					echo "<b>$n is NOT a Prime Number</b>";
+				}
 			break;
-		case 'Even Odd':
+		case 'Even Odd':	//Even-odd case
 			if($n%2==0)
 			{
 				echo "$n is Even no.";
@@ -63,7 +81,7 @@ if(isset($_POST['n']))
 				echo "$n is odd no.";
 			}
 			break;
-		case 'Positive Negative':
+		case 'Positive Negative':	//Positive negative case
 			if($n>0)
 			{
 				echo "$n is Positive no.";
