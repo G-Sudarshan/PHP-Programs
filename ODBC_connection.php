@@ -1,6 +1,6 @@
 <?php
 //Program to handle ODBC connection with php code
-$conn=odbc_connect("mydsn", "", "");
+$conn=odbc_connect("mydsn", "", "");	//opening connection
 if (odbc_error($conn)) {
 	echo "<br><br>Connection fail..";
 }
@@ -14,7 +14,7 @@ echo"<br><br>Inserting data.....";
 $q1="INSERT INTO emp_data VALUES(11,'SAK',25000,22,'9874060633')";
 $s1="INSERT INTO emp_data VALUES(12,'REK',25000,25,'9874060633')";
 $s2="INSERT INTO emp_data VALUES(13,'DFG',25000,29,'9874060633')";
-odbc_exec($conn, $s1);
+odbc_exec($conn, $s1);		//Executing queries
 odbc_exec($conn, $s2);
 if(odbc_exec($conn, $q1))
 {
@@ -24,8 +24,6 @@ else
 {
 	echo "<br><br>Error for insertion...";
 }
-
-
 $q2="UPDATE emp_data SET emp_name='SHAU' WHERE id=11";
 if(odbc_exec($conn, $q2))
 {
@@ -56,7 +54,7 @@ echo "<th>Name</th>";
 echo "<th>Salary</th>";
 echo "<th>Age</th>";
 echo "<th>Mobile No.</th></tr>";
-while (odbc_fetch_row($rs))
+while (odbc_fetch_row($rs))    //Fetching results from 
 {
   $ID=odbc_result($rs,"ID");
   $Name=odbc_result($rs,"emp_name");
@@ -71,6 +69,6 @@ while (odbc_fetch_row($rs))
   echo "<td>$Mob</td></tr>";
 }
 echo "</table>";
-odbc_close($conn);
+odbc_close($conn);		//Closing the connection
 
 ?>
